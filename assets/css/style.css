@@ -2,6 +2,27 @@ body{
     background-color: #eeeeee;
     margin-top: 5px;
 }
+#start button{
+    background-color: #93a39d;
+    padding: 30px 50px 30px 50px;
+    margin: 200px;
+    color: #ffffff;
+    border: 2px solid #ccbbcc;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px #ccbbcc;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 16px;
+    
+}
+#start button:hover {
+    cursor: pointer;
+    background-color: #57636e;
+}
+#start button:focus {
+    outline: 0;
+}
 .grid{
     width: 600px;
     height: 500px;
