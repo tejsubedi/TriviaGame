@@ -1,170 +1,194 @@
-//Global Variables
-const start = $("#start");
-const question = $("#question");
-const quiz = $("#quiz");
-const choice0 = $("#choice0");
-const choice1 = $("#choice1");
-const choice2 = $("#choice2");
-const choice3 = $("#choice3");
-const counter = $("#counter");
-const timeGauge = $("#timeGauge");
-const progress = $("#progress");
-const scoreDiv = $("#scoreContainer");
-
-
-//create questions
 let questions = [
     {
-        question: "What does HTML stand for?",
-        choice0: "Home Tool Markup Language",
-        choice1: "Hyper Text Markup Language",
-        choice2: "Hyperlinks and Text Markup Language",
-        choice3: "All of the above",
-        imgSrc: "assets/images/favicon.ico",
-        correct: "choice1"
-    }, {
-        question: "Who is making the Web standards?",
-        choice0: "The World Wide Web Consortium",
-        choice1: "Google",
-        choice2: "Microsoft",
-        choice3: "Mozilla",
-        imgSrc: "assets/images/favicon.ico",
-        correct: "choice0"
-    }, {
-        question: "What does CSS stand for?",
-        choice0: "Colorful Style Sheets",
-        choice1: "Cascading Style Sheets",
-        choice2: "Computer Style Sheets",
-        choice3: "Creative Style Sheets",
-        imgSrc: "assets/images/favicon.ico",
-        correct: "choice1"
-    }, {
-        question: "Inside which HTML element do we put the JavaScript?",
-        choice0: "<Scripting>",
-        choice1: "<js>",
-        choice2: "<script>",
-        choice3: "<javascript>",
-        imgSrc: "assets/images/favicon.ico",
-        correct: "choice2"
-    }, {
-        question: "What is the correct HTML element for the largest heading?",
-        choice0: "<h1>",
-        choice1: "<heading>",
-        choice2: "<h6>",
-        choice3: "<head>",
-        imgSrc: "assets/images/favicon.ico",
-        correct: "choice0"
-    },
-]
+        question : "What is Michael Jackson's hometown?",
+        qImage: "assets/images/michael-01.gif",
+        choiceA : "Gary, IN",
+        choiceB : "New Orleans, LA",
+        choiceC : "Philadelphia, PA",
+        choiceD : "Buffalo, NY",
+        correct : "A"
+    },{
+        question : "How many copies has the album Thriller sold worldwide?",
+        qImage: "assets/images/michael-02.gif",
+        choiceA : "20 million",
+        choiceB : "50 million",
+        choiceC : "75 million",
+        choiceD : "over 100 million",
+        correct : "C"
+    },{
+        question : "What is the name of the skin condition that Michael Jackson said he had?",
+        qImage: "assets/images/michael-03.gif",
+        choiceA : "Dermatitis",
+        choiceB : "Vitiligo",
+        choiceC : "Skin cancer",
+        choiceD : "Rosacea",
+        correct : "B"
+    },{
+        question : "During which performance did Michael Jackson do the moonwalk for the first time?",
+        qImage: "assets/images/michael-04.gif",
+        choiceA : "Smooth Criminal",
+        choiceB : "Beat It",
+        choiceC : "Billie Jean",
+        choiceD : "Bad",
+        correct : "C"
+    },{
+        question : "Whom did Michael Jackson teach to dance in the video for Jam?",
+        qImage: "assets/images/michael-05.gif",
+        choiceA : "Eddie Murphy",
+        choiceB : "John Travolta",
+        choiceC : "Bill Cosby",
+        choiceD : "Michael Jordan",
+        correct : "D"
+    },{
+        question : "How many Grammys did Michael Jackson win for Thriller in 1984?",
+        qImage: "assets/images/michael-06.gif",
+        choiceA : "Two",
+        choiceB : "Five",
+        choiceC : "Eight",
+        choiceD : "Eleven",
+        correct : "C"
+    },{
+        question : "The Michael Jackson movie Captain EO could be seen where during the late 80s?",
+        qImage: "assets/images/michael-07.gif",
+        choiceA : "Disneyland/Epcot Center",
+        choiceB : "Seaworld",
+        choiceC : "Busch Gardens",
+        choiceD : "Six Flags",
+        correct : "A"
+    },{
+        question : "With whom did Michael Jackson co-write We Are The World?",
+        qImage: "assets/images/michael-08.gif",
+        choiceA : "Lionel Richie",
+        choiceB : "Stevie Wonder",
+        choiceC : "Billy Joel",
+        choiceD : "Aretha Franklin",
+        correct : "A"
+    },{
+        question : "What happened to Michael Jackson during the filming of a Pepsi commercial in 1984?",
+        qImage: "assets/images/michael-09.gif",
+        choiceA : "Broke his ankle",
+        choiceB : "Hair caught on fire",
+        choiceC : "Collapsed from exhaustion",
+        choiceD : "Shot by a fan",
+        correct : "B"
+    },{
+        question : "Michael Jackson was raised under which religious denomination?",
+        qImage: "assets/images/michael-10.gif",
+        choiceA : "Episcopalian",
+        choiceB : "Catholic",
+        choiceC : "Jehova's Witness",
+        choiceD : "Baptist",
+        correct : "C"
+    }
+];
 
-//create some variables
-const lastQuestion = questions.length - 1;
-let runningQuestion = 0;
-let count = 0;
-const questionTime = 10;
-const gaudgeWidth = 150;
-const gaugeUnit = gaudgeWidth / questionTime;
-let TIMER;
+//Global Variable
+let question = $('#question');
+let choiceA = $('#A');
+let choiceB = $('#B');
+let choiceC = $('#C');
+let choiceD = $('#D');
+let currentPosition = 0;
 let score = 0;
+let displayContainer = $(".displaycontainer");
+let imageCard = $("#imagecard");
+let scoreCard = $("#scorecard");
+let progress = $("#progress");
+let timeCard = $("#timecard");
+let TIMER;
+let counter = 0;
+const questionTime = 10; // 10s
 
-//render a question
+
 $(document).ready(() => {
-    const start = $("#start");
-    const quiz = $("#quiz");
+    var content = $(".content");
+    var quiz = $(".quiz");
 
-    start.on('click', () => {
+    quiz.hide();
+    displayContainer.hide();
+    imageCard.hide();
+    scoreCard.hide();
+
+    content.on('click', () => {
+        content.hide();
         quiz.show();
-        start.hide();
+        renderQuestion();
+        checkCounter();
+        TIMER = setInterval(checkCounter, 1000);
     })
+    scoreDisplay();
 
-    function renderQuestion() {
-        let q = questions[runningQuestion];
-        q.question;
-        question.html(`${q.question}`);
-        choice0.html(`${q.choice0}`);
-        choice1.html(`${q.choice1}`);
-        choice2.html(`${q.choice2}`);
-        choice3.html(`${q.choice3}`);
-
-    }
-
-    function renderProgress() {
-        for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
-            progress.innerHTML += "<div class='prog' id= " + qIndex + "> </div>";
-        }
-    }
-
-    renderQuestion();
-    renderProgress();
 })
 
 
 
+function renderQuestion() {
+    let q = questions[currentPosition];
+    question.html(`${q.question}`);
+    choiceA.html(`${q.choiceA}`);
+    choiceB.html(`${q.choiceB}`);
+    choiceC.html(`${q.choiceC}`);
+    choiceD.html(`${q.choiceD}`);
+}
 
-
-
-
-//console.log(renderProgress());
-
-// function renderCounter(){
-//     if(count <= questionTime){
-//         counter.innerHTML= (`${count}`);
-//         timeGauge.style.width = count * gaugeUnit + "px";
-//         count ++;
-//     }
-//     else {
-//         count =0;
-//         //change progress color to red 
-//         answerIsWrong();
-//         if(runningQuestion < lastQuestion){
-//             runningQuestion++;
-//             renderQuestion();
-//         }else{
-//             //end the quiz & show the score
-//             clearInterval(TIMER);
-//             scoreRender();
-//         }
-//     }
-// }
-
-
-//check answer
 function checkAnswer(answer) {
-    if (answer === question[runningQuestion].correct) {
+    if (answer === questions[currentPosition].correct) {
         //answer is correct
         score++;
-        //change progress color to green
-        answerIsCorrect();
-    }
-    else {
+        imageCard.html(`<h1 class="imageheader">You Select Right Answer!!!</h1>`);
+        imageCard.append(`<img src = "${questions[currentPosition].qImage}">`);
+        displayContainer.show();
+        imageCard.show();
+    } else {
         //answer is wrong
-        //change progress color to red
-        answerIsWrong();
+        imageCard.html(`<h1 class="imagewrong">You Select Wrong Answer!!!</h1>`);
+        imageCard.append(`<img src = "${questions[currentPosition].qImage}">`);
+        displayContainer.show();
+        imageCard.show();
     }
-    count = 0;
-    if (runningQuestion < lastQuestion) {
-        runningQuestion++;
+
+    counter = 0;
+    if (currentPosition < questions.length - 1) {
+        currentPosition++;
         renderQuestion();
+
     } else {
         //end the quiz and show the score
         clearInterval(TIMER);
-        scoreRender();
+        imageCard.hide();
+        scoreCard.show();
+        scoreDisplay();
     }
 }
 
- //answer is correct
- // function answerIsCorrect(){
- //     document.getElementById(runningQuestion).style.backgroundColor = "#0F0";
- // }
- //answer is wrong
- // function answerIsCorrect(){
- //     document.getElementById(runningQuestion).style.backgroundColor = "#0569";
- // }
 
- // function scoreRender(){
- //     scoreDiv.style.display = "block";
- // }
 
- //calculate the amount of Question
- //const scorePercent = Math.round(100 * score/questions.length);
+
+
+//score display counter
+function scoreDisplay() {
+    const scorePercent = Math.round(100 * score / questions.length);
+    console.log(scorePercent);
+    scoreCard.html(`Total Score:<br> ${scorePercent} %.`);
+
+}
+
+//counter render
+function checkCounter() {
+    if (counter <= questionTime) {
+        timeCard.html(`<h1 class="time">MaxTime:${questionTime} seconds:  ${counter}`);
+        counter++;
+        renderQuestion();
+    } else {
+        counter = 0;
+        if (currentPosition < questions.length - 1) {
+            currentPosition++;
+            renderQuestion();
+        } else {
+            //end the quiz
+            clearInterval(TIMER);
+            scoreDisplay();
+        }
+    }
+}
 

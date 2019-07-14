@@ -2,45 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Trivia Quiz Game</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div id="start"><button>Start Quiz!!!</button></div>
-        <div id="quiz" style="display: none">
-            <h1>Quiz</h1>
-            <hr style="margin-bottom: 20px" />
-            <div id="question"></div>
-            <br />
-            <div class="choices">
-                <button id="btn0"><span id="choice0"></span></button>
-                <button id="btn1"><span id="choice1"></span></button>
-                <button id="btn2"><span id="choice2"></span></button>
-                <button id="btn3"><span id="choice3"></span></button>
+    <section class="intro">
+        <div class="inner">
+            <div class="content">
+                <h1>Wel come to Trivia Quiz Game</h1>
+                <a class="btn" href="#quiz">Get started</a>
             </div>
 
-            <hr style="margin-top: 50px" />
-
-            <div class="timer">
-                <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
+            <div class="quiz">
+                <div id="timecard"></div><br>
+                <h1 id="question"></h1>
+                <div class="choices">
+                    <button class="btn" id="A" value="A" onclick="checkAnswer('A')"></button><br>
+                    <button class="btn" id="B" value="B" onclick="checkAnswer('B')"></button><br>
+                    <button class="btn" id="C" value="C" onclick="checkAnswer('C')"></button><br>
+                    <button class="btn" id="D" value="D" onclick="checkAnswer('D')"></button>
+                </div>
             </div>
-            <div id="progress"></div>
+            <div class="displaycontainer">
+                <div id="imagecard"></div>
+                <div id="progress"></div>
+                <div id="scorecard"></div>
+            </div>
         </div>
-    </div>
-    <div id="scoreContainer"></div>
+    </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js" type="text/javascript"></script>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="assets/javascript/app.js" type="text/javascript"></script>
 
 </html>
+
