@@ -93,6 +93,8 @@ let score = 0;
 let displayContainer = $(".displaycontainer");
 let imageCard = $("#imagecard");
 let scoreCard = $("#scorecard");
+let content = $(".content");
+let quiz = $(".quiz");
 let progress = $("#progress");
 let timeCard = $("#timecard");
 let TIMER;
@@ -101,11 +103,7 @@ const questionTime = 10; // 10s
 
 
 $(document).ready(() => {
-    var content = $(".content");
-    var quiz = $(".quiz");
-
     quiz.hide();
-    displayContainer.hide();
     imageCard.hide();
     scoreCard.hide();
 
@@ -137,13 +135,11 @@ function checkAnswer(answer) {
         score++;
         imageCard.html(`<h1 class="imageheader">You Select Right Answer!!!</h1>`);
         imageCard.append(`<img src = "${questions[currentPosition].qImage}">`);
-        displayContainer.show();
         imageCard.show();
     } else {
         //answer is wrong
         imageCard.html(`<h1 class="imagewrong">You Select Wrong Answer!!!</h1>`);
         imageCard.append(`<img src = "${questions[currentPosition].qImage}">`);
-        displayContainer.show();
         imageCard.show();
     }
 
@@ -163,8 +159,6 @@ function checkAnswer(answer) {
 
 
 
-
-
 //score display counter
 function scoreDisplay() {
     const scorePercent = Math.round(100 * score / questions.length);
@@ -176,7 +170,7 @@ function scoreDisplay() {
 //counter render
 function checkCounter() {
     if (counter <= questionTime) {
-        timeCard.html(`<h1 class="time">MaxTime:${questionTime} seconds:  ${counter}`);
+        timeCard.html(`<h1 class="time">${currentPosition +1} of ${questions.length} Questions(10 sec each question) <br><br> ${counter} sec`);
         counter++;
         renderQuestion();
     } else {

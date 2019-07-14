@@ -26,7 +26,7 @@ html, body {
 .content {
   width: 960px;
   height: 250px;
-  margin-left: 350px;
+  margin-left: 250px;
   text-align: center;
   background-color: rgb(227, 231, 237);
 }
@@ -52,35 +52,43 @@ html, body {
   border: 3px solid #ffffff;
 }
 
-.quiz{
+.intro .quiz{
   width: 960px;
   height: 650px;
-  margin: auto;
+  margin-right: 200px;
   text-align: center;
   background-color: rgb(227, 231, 237);
 }
 
-/* #imagecard {
-  width: 250px;
-  height: 150px;
-  margin: 150px;
+#imagecard {
+  width: 960px;
+  height: 500px;
+  margin-top: 50px;
+  margin-right: 200px;
+margin-bottom: 50px;
   text-align: center;
   background-color: rgb(227, 231, 237);
-} */
-.displaycontainer{
-width: 650px;
+}
+/* .displaycontainer{
+width: 860px;
 height: 250px;
-margin-left: 350px;
+margin-right: 200px;
 text-align: center;
 background-color: rgb(227, 231, 237);
-}
+} */
 #scorecard {
-  width: 250px;
-  height: 150px;
-  margin: 150px;
-  text-align: center;
-  background-color: #361616;
-  display: none; 
+width: 860px;
+height: 150px;
+margin-top: 50px;
+margin-right: 200px;
+margin-bottom: 50px;
+text-align: center;
+background-color: grey;
+font-weight: bold;
+font-size: 18px;
+text-transform: uppercase;
+color: #ffffff;
+padding: 50px;
 }
 .imageheader {
   background-color: #036A81;
