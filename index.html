@@ -11,25 +11,32 @@
 
 <body>
     <section class="intro">
+        <!-- starting page -->
         <div class="inner">
             <div class="content">
-                <h1>Wel come to Trivia Quiz Game</h1>
-                <a class="btn" >Get started</a>
+                <h1 class="welcome-message">Wel come to Trivia Quiz Game</h1>
+                <button class="start-btn">Get started</button>
             </div>
         </div>
-
+        <!-- Quiz Page  -->
         <div class="quiz">
             <div id="timecard"></div><br>
             <h1 id="question"></h1>
             <div class="choices">
-                <button class="btn" id="A" value="A" onclick="checkAnswer('A')"></button><br>
-                <button class="btn" id="B" value="B" onclick="checkAnswer('B')"></button><br>
-                <button class="btn" id="C" value="C" onclick="checkAnswer('C')"></button><br>
-                <button class="btn" id="D" value="D" onclick="checkAnswer('D')"></button>
+                <button class="btn-choices" id="A" value="A" onclick="checkAnswer('A')"></button><br>
+                <button class="btn-choices" id="B" value="B" onclick="checkAnswer('B')"></button><br>
+                <button class="btn-choices" id="C" value="C" onclick="checkAnswer('C')"></button><br>
+                <button class="btn-choices" id="D" value="D" onclick="checkAnswer('D')"></button>
             </div>
         </div>
+
+        <!-- Image container  -->
         <div id="imagecard"></div>
+        
+        <!-- ScoreCard Container -->
         <div id="scorecard"></div>
+
+
     </section>
 
 </body>

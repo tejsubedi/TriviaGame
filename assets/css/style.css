@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -7,7 +8,7 @@ html, body {
   background-color: #ffffff;
 }
 
-.intro{
+.intro {
   height: 100%;
   width: 100%;
   margin: 0 auto;
@@ -21,6 +22,7 @@ html, body {
   display: table-cell;
   vertical-align: middle;
   width: 100%;
+  height: 50%;
   max-width: none;
 }
 .content {
@@ -30,32 +32,60 @@ html, body {
   text-align: center;
   background-color: rgb(227, 231, 237);
 }
-.content h1{
-  font-family: 'Raleway', sans-serif;
+.content h1 {
+  font-family: "Raleway", sans-serif;
   color: #49111a;
-  text-shadow: 0px 0px 300px  #000;
+  text-shadow: 0px 0px 300px #000;
   font-size: 200%;
 }
-.btn{
+.start-btn {
   border-radius: 9px;
-  font-family: 'Oswald', sans-serif;
-  color: #036A81;
+  font-family: "Oswald", sans-serif;
+  color: #036a81;
   font-size: 135%;
   padding: 10px 20px;
-  margin-top: 20px; 
-  border: 3px solid #036A81;
+  margin-top: 20px;
+  border: 3px solid #036a81;
   text-transform: uppercase;
   text-decoration: none;
 }
-.btn:hover{
+.image-button{
+  border-radius: 9px;
+  font-family: "Oswald", sans-serif;
+  color: #036a81;
+  font-size: 135%;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border: 3px solid #036a81;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.start-btn:hover {
   color: #361616;
   border: 3px solid #ffffff;
 }
 
-.intro .quiz{
+.btn-choices {
+  border-radius: 9px;
+  font-family: "Oswald", sans-serif;
+  color: #036a81;
+  font-size: 135%;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 3px solid #036a81;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.btn-choices:hover {
+  color: #361616;
+  border: 3px solid #ffffff;
+}
+
+.intro .quiz {
   width: 960px;
   height: 650px;
-  margin-right: 200px;
+  margin: 0 auto;
   text-align: center;
   background-color: rgb(227, 231, 237);
 }
@@ -63,54 +93,41 @@ html, body {
 #imagecard {
   width: 960px;
   height: 500px;
-  margin-top: 50px;
-  margin-right: 200px;
-margin-bottom: 50px;
+  margin: 50px auto;
   text-align: center;
   background-color: rgb(227, 231, 237);
 }
-/* .displaycontainer{
-width: 860px;
-height: 250px;
-margin-right: 200px;
-text-align: center;
-background-color: rgb(227, 231, 237);
-} */
+
 #scorecard {
-width: 860px;
-height: 150px;
-margin-top: 50px;
-margin-right: 200px;
-margin-bottom: 50px;
-text-align: center;
-background-color: grey;
-font-weight: bold;
-font-size: 18px;
-text-transform: uppercase;
-color: #ffffff;
-padding: 50px;
+  width: 860px;
+  height: 150px;
+  margin: 50px auto;
+  text-align: center;
+  background-color: grey;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 50px;
 }
 .imageheader {
-  background-color: #036A81;
+  background-color: #036a81;
   color: #ffffff;
   background-size: cover;
   margin-top: 25px;
   padding: 25px;
 }
 .imagewrong {
-  background-color:rgb(82, 29, 29);
+  background-color: rgb(82, 29, 29);
   color: #ffffff;
   background-size: cover;
   margin-top: 25px;
   padding: 25px;
 }
 #timecard {
-  background-color: #036A81;
+  background-color: #036a81;
   color: #ffffff;
   background-size: cover;
   margin-top: 20px;
   padding: 20px;
 }
-
-
-
